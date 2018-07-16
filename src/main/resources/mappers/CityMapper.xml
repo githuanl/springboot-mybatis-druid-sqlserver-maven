@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.centersoft.entity.CityMapper" >
+
+    <insert id="save" parameterType="com.centersoft.entity.City">
+        insert into city(name) values(#{name,jdbcType=VARCHAR})
+    </insert>
+
+    <select id="selectById" resultType="com.centersoft.entity.City">
+        select * from city where id = #{id,jdbcType=NUMERIC}
+    </select>
+
+    <update id="updateById" parameterType="com.centersoft.entity.City">
+        update city set
+        username = #{userName,jdbcType=VARCHAR} ,
+        age = #{age,jdbcType=NUMERIC}
+        where id = #{id,jdbcType=NUMERIC}
+    </update>
+
+    <delete id="deleteById">
+        delete from city where id = #{id,jdbcType=NUMERIC}
+    </delete>
+
+    <select id="queryAll" resultType="com.centersoft.entity.City">
+        select * from city
+    </select>
+
+</mapper>
